@@ -1,22 +1,21 @@
-from turtle import width
-
 from pyblockworld import World
 
-world = World()
 
-class wall:
-    def __init__(self, width, height, pos, rotated, material_id,bw):
-        self.width = width
-        self.height = height
+class Wall:
+    def __init__(self, pos: tuple, bw: World):
+        self.width = 6
+        self.height = 5
         self.pos = pos
-        self.rotated = rotated
-        self.material_id = material_id
-        self._bw = bw
-
-    def Wall(self):
-        # Code to create a wall in Minecraft using the specified parameters
-        world.setBlocks(self.pos[0], self.pos[1], self.pos[2],self.width, self.height, 1, self.material_id)
+        self.rotated = False
+        self.material_id = "default:stone"
+        self._bw = bw  # protected (#)
 
     def build(self):
-        # Code to build the wall in Minecraft at the specified coordinates
-        pass
+        x, y, z = self.pos
+        top = y + self.height - 1
+        if self.rotated:
+            # turned 90° around the y-axis -> runs along z
+            self._bw.setBlocks(x, y, z, x, top, z + self.width - 1, self.material_id)
+        else:
+            # runs along x
+            self._bw.setBlocks(x, y, z, x + self.width - 1, top, z, self.material_id)
