@@ -42,18 +42,22 @@ x:   11   12   13   14   15
 ❌ Old code: `setBlocks(x, y, z, 3, -1, 0, …)` treated `3, -1, 0` as fixed world coordinates.
 Standing at x = 40 gave a strip from 40 down to 3 (38 blocks).
 
-✅ Milestone 1 (`nr_1.py`), seen from the side:
+✅ Milestone 1 (`nr_1.py`), top view (looking down):
 
 ```
- y
- 3   S
- 2   S                 S = sand   (4 in y)
- 1   S                 B = brick  (3 in x)
- 0   S                 T = stone  (5 in z, goes "into" the screen)
--1   B  B  B
-     ─────────── x
-     T T T T T  → z
+z
+↑
+│        x  x+1 x+2 x+3 x+4
+│ z+4                    T
+│ z+3                    T        B = brick  3 in x
+│ z+2    S               T        S = sand   4 in y (pillar, points at you)
+│ z+1                    T        T = stone  5 in z
+│ z      B   B   B       T
+└──────────────────────────→ x
 ```
+
+> ⚠️ **Counting trap:** if the rows share a corner block, the pillar measures 4 + 1 = 5 tall.
+> Keep them apart (1 block gap) so each row counts on its own.
 
 ---
 

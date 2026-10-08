@@ -8,9 +8,10 @@ def b_key_pressed(world: World):
     y -= 1  # feet level (ground is at y = -2)
 
     # setBlocks(start corner, end corner) -> end = start + count - 1
-    world.setBlocks(x, y, z,     x + 2, y,     z,     "default:brick")  # 3 in x
-    world.setBlocks(x, y + 1, z, x,     y + 4, z,     "default:sand")   # 4 in y
-    world.setBlocks(x, y, z + 1, x,     y,     z + 5, "default:stone")  # 5 in z
+    # rows don't touch, so each one can be counted on its own
+    world.setBlocks(x,     y, z,     x + 2, y,     z,     "default:brick")  # 3 in x
+    world.setBlocks(x,     y, z + 2, x,     y + 3, z + 2, "default:sand")   # 4 in y
+    world.setBlocks(x + 4, y, z,     x + 4, y,     z + 4, "default:stone")  # 5 in z
 
 
 world = World()
