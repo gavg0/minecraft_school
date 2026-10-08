@@ -1,10 +1,46 @@
 [
   {
-    "label": "Run main.py",
+    "label": "Run main.py (M6 house)",
     "command": "venv/bin/python3",
     "args": ["main.py"],
     "cwd": "$ZED_WORKTREE_ROOT",
     "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Run nr_1.py (M1 blocks)",
+    "command": "venv/bin/python3",
+    "args": ["nr_1.py"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Run nr_2.py (M2 walls)",
+    "command": "venv/bin/python3",
+    "args": ["nr_2.py"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Run nr_3.py (M3 door/window walls)",
+    "command": "venv/bin/python3",
+    "args": ["nr_3.py"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": true,
+    "allow_concurrent_runs": false,
+    "reveal": "always"
+  },
+  {
+    "label": "Run tests (M7)",
+    "command": "venv/bin/python3",
+    "args": ["-m", "unittest", "-v"],
+    "cwd": "$ZED_WORKTREE_ROOT",
+    "use_new_terminal": false,
     "allow_concurrent_runs": false,
     "reveal": "always"
   }
